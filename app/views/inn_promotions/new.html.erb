@@ -1,20 +1,27 @@
 <h2>Adicionar nova promoção</h2>
 
-<%= form_with(model: @promotion) do |form| %>
+<%= form_with(model: @promotions, url: inn_management_inn_promotions_path, method: 'post') do |form| %>
     <div>
-        <%= form.label :name %> <br>
+        <%= form.label :name, 'Nome da promoção' %> <br>
         <%= form.text_field :name %>
     </div>
     <div>
-        <%= form.label :start_date %> <br>
+        <%= form.label :start_date, 'Data inicial' %> <br>
         <%= form.date_field :start_date %>
     </div>
     <div>
-        <%= form.label :end_date %> <br>
+        <%= form.label :end_date, 'Data final' %> <br>
         <%= form.date_field :end_date %>
     </div>
     <div>
-        <%= form.label :inn_room_id %> <br>
+        <%= form.label :inn_room_id, 'Selecione o quarto' %> <br>
         <%= form.collection_select :inn_room_id, @inn_rooms, :id, :name %>
+    </div>
+    <div>
+        <%= form.label :discount, 'Informe a porcetagem de desconto' %> <br>
+        <%= form.number_field :discount %>
+    </div>
+    <div>
+        <%= form.submit %>
     </div>
 <% end %>
