@@ -1,0 +1,20 @@
+<h2>Adicionar nova promoção</h2>
+
+<%= form_with(model: @promotion) do |form| %>
+    <div>
+        <%= form.label :name %> <br>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :start_date %> <br>
+        <%= form.date_field :start_date %>
+    </div>
+    <div>
+        <%= form.label :end_date %> <br>
+        <%= form.date_field :end_date %>
+    </div>
+    <div>
+        <%= form.label :inn_room_id %> <br>
+        <%= form.collection_select :inn_room_id, @inn_rooms, :id, :name %>
+    </div>
+<% end %>
